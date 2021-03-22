@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Didact+Gothic"
+      rel="stylesheet"
+    />
+    <link href="{% static "css/default.css" %}" rel="stylesheet" type="text/css"
+    media="all" /> <link href="{% static "css/fonts.css" %}" type="text/css"
+    media="all" />
+  </head>
+  <body>
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+
+    <div id="header-wrapper">
+      <div id="header" class="container">
+        <div id="logo">
+          <h1><a href="#">Opportunity Management Dashboard</a></h1>
+          
+        </div>
+    
+      </div>
+      
+      <div id="welcome">
+        
+        <div class="container">
+          <div class="title">
+            {% block content %}
+
+            <br />
+
+            <div class="row">
+              <div class="col-md-5">
+                <ul class="actions">
+                  <li><a  class="button">ACCOUNTS</a></li>
+                </ul>
+                <hr />
+                <div class="card card-body">
+                  <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_account' %}">Create Account</a>
+                  <table class="table table-sm" >
+                    <tr>
+                    
+                      <th>Account Name</th>
+                      <th>Address</th>
+                    </tr>
+
+                    {% for account in accounts %}
+                    <tr>
+                     
+                      <td>{{account.account_name}}</td>
+                      <td>{{account.address}}</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+                </div>
+              </div>
+
+              <div class="col-md-7">
+                <ul class="actions">
+                  <li><a  class="button">OPPORTUNITIES</a></li>
+                </ul>
+                <hr />
+                <div class="card card-body">
+                  <a class="btn btn-primary btn-sm btn-block" href="{% url 'create_opportunity' %}">Create Opportunities</a>
+                  <table class="table table-sm">
+                    <tr>
+                      <th>Opportunity title</th>
+                      <th>Associated account</th>
+                      <th>Amount</th>
+                      <th>Discovery</th>
+                      <th>Proposal shared</th>
+                      <th>Negotiations</th>
+                    </tr>
+
+                    {% for i in opportunities %}
+                    <tr>
+                      <td>{{i.opportunity_title}}</td>
+                      <td>{{i.associated_account}}</td>
+                      <td>{{i.amount}}</td>
+                      <td>{{i.discovery}}</td>
+                      <td>{{i.proposal_shared}}</td>
+                      <td>{{i.negotiations}}</td>
+                    
+                    </tr>
+                    {% endfor %}
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
+      {% endblock %}
+
+        
+        </div>
+</div>
+
+
+    <div id="copyright" class="container">
+      <p>
+        &copy; Opportunity Management System. All rights reserved | Developed by
+        <a href="https://frankfreek.github.io/" rel="nofollow">Frankfreek</a>.
+      </p>
+    </div>
+  </body>
+</html>

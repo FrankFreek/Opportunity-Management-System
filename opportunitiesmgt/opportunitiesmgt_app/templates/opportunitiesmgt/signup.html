@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Didact+Gothic"
+      rel="stylesheet"
+    />
+    <link href="{% static "css/default.css" %}" rel="stylesheet" type="text/css"
+    media="all" /> <link href="{% static "css/fonts.css" %}" type="text/css"
+    media="all" />
+  </head>
+  <body>
+    <div id="header-wrapper">
+      <div id="header" class="container">
+        <div id="logo">
+          <h1><a href="#">Opportunity Management</a></h1>
+        </div>
+        <div id="menu">
+          <ul>
+            <li class="active">
+              <a href="{% url 'index' %}" accesskey="1" title="">Homepage</a>
+            </li>
+            <li>
+              <a href="{% url 'about_us' %}" accesskey="2" title="">About Us</a>
+            </li>
+            <li>
+              <a href="{% url 'login' %}" accesskey="3" title="">Login</a>
+            </li>
+            <li>
+              <a href="{% url 'signup' %}" accesskey="4" title="">Signup</a>
+            </li>
+            <li>
+              <a href="{% url 'contact_us' %}" accesskey="5" title=""
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div id="wrapper">
+        <div id="three-column" class="container">
+          <div>
+            {% block content %}
+          
+            <h1>Sign Up</h1>
+            <form action="" method="post">
+              {% csrf_token %} {{ form.as_p }}
+              <div class="d-flex justify-content-center mt-3 login_container">
+                <input class="btn login_btn" type="submit" value="Sign Up" />
+              </div>
+            </form>
+            <div class="mt-4">
+              <div class="d-flex justify-content-center links">
+                Already have an account?
+                <a href="{% url 'login' %}" class="ml-2">Login</a>
+              </div>
+            </div>
+          
+            {% endblock %}
+          </div>
+           
+          
+        </div>
+    </div>
+
+    <div id="copyright" class="container">
+      <p>
+        &copy; Opportunity Management System. All rights reserved | Developed by
+        <a href="https://frankfreek.github.io/" rel="nofollow">Frankfreek</a>.
+      </p>
+    </div>
+  </body>
+</html>

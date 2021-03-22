@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Didact+Gothic"
+      rel="stylesheet"
+    />
+    <link href="{% static "css/default.css" %}" rel="stylesheet" type="text/css"
+    media="all" /> <link href="{% static "css/fonts.css" %}" type="text/css"
+    media="all" />
+    <div id="logo">
+          <h1><a href="#">Opportunity Management Dashboard</a></h1>
+        </div>
+    
+  </head>
+  <body>
+    <div id="header-wrapper">
+      <div id="header" class="container">
+        
+      
+            <div id="wrapper">
+                <div id="three-column" class="container">
+                    <div>
+                        {% load crispy_forms_tags %}
+                        {% block content %}
+                
+                        <h1>Create Account</h1>
+                        
+                        <form class="form-group" action="" method="post">
+                            {% csrf_token %} 
+                            {{ form.as_p }}
+                            
+                            <button class="btn btn-sucess" type="submit" value="Login">Create Account</button> 
+                        
+                        </form>
+                
+                
+                        {% endblock %}
+                    </div>
+                <div>
+                
+                
+            </div>
+       </div>
+    </div>
+
+    <div id="copyright" class="container">
+      <p>
+        &copy; Opportunity Management System. All rights reserved | Developed by
+        <a href="https://frankfreek.github.io/" rel="nofollow">Frankfreek</a>.
+      </p>
+    </div>
+  </body>
+</html>
