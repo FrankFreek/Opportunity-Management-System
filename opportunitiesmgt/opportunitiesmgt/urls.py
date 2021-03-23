@@ -26,8 +26,6 @@ urlpatterns = [
     path("about_us/", views.about_usPage, name="about_us"),
     path("contact_us/", views.contact_usPage, name="contact_us"),
     path("userProfile/", views.userProfile, name="userProfile"),
-    path("accounts/<str:pk_test>/", views.accounts, name="accounts"),
-    path("opportunities/", views.opportunities, name="opportunities"),
     path("create_account/", views.create_account, name="create_account"),
     path("create_opportunity/", views.create_opportunity, name="create_opportunity"),
 
