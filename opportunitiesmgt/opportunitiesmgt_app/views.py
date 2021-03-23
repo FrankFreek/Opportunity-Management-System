@@ -48,7 +48,7 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
     
 
 def contact_usPage(request):
@@ -62,18 +62,6 @@ def userProfile(request):
 
     context = {'accounts':accounts, 'opportunities':opportunities}
     return render(request, "opportunitiesmgt/userProfile.html", context)
-
-@login_required(login_url='login')
-def accounts(request):
-    accounts = Account.objects.all()
-    context = {'accounts':accounts}
-    return render(request, "opportunitiesmgt/accounts.html", context)
-
-@login_required(login_url='login')
-def opportunities(request):
-    opportunities = Opportunitie.objects.all()
-    context = {'opportunities':opportunities}
-    return render(request, "opportunitiesmgt/opportunities.html", context)
 
 
 def create_account(request):
